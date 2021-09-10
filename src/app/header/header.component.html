@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/"  *ngIf="userStatus">MyMessages</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li>
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent" *ngIf="userStatus">New Post</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent" *ngIf="!userStatus">login</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/Signup" routerLinkActive="mat-accent" *ngIf="!userStatus">Signup</a>
+    </li>
+    <li>
+      <a mat-button *ngIf="userStatus" (click)="onLogout()">Logout</a>
+    </li>
+   <li routerLinkActive="mat-accent" *ngIf="userStatus">
+
+       <input matInput
+       row="2"
+       name="search"
+       placeholder="Search"
+       ngModel
+
+(ngModelChange)="onchanges($event)"
+       >
+
+
+   </li>
+
+
+  </ul>
+</mat-toolbar>

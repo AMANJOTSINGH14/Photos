@@ -1,0 +1,9 @@
+.postImage{
+  width:40rem;
+
+}
+
+.postImage img{
+  width: 100%;
+  margin-left: 100px;
+}

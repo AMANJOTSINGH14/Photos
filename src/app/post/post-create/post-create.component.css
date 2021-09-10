@@ -1,0 +1,21 @@
+.mat-card{
+  width: 70%;
+  margin: auto;
+}
+mat-form-field, textarea{
+  width: 100%;
+}
+mat-spinner{
+  margin: auto;
+}
+.display{
+  display: flex;
+}
+input[type="file"]{
+  visibility: hidden;
+}
+.preview img{
+  height: 5rem;
+  margin: 0rem;
+
+}
