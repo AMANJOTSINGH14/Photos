@@ -37,7 +37,7 @@ app.post('',auth,multer({storage:storage}).single("image"),(req,res)=>{
    owner:req.userData.userId
 
   })
-   console.log(req.userData.userId)
+  //  console.log(req.userData.userId)
   data.save().then(result=>{
 
 
@@ -53,10 +53,11 @@ app.post('',auth,multer({storage:storage}).single("image"),(req,res)=>{
 })
 // z9odQxvJwlddIW1W
 app.get('',auth,(req,res)=>{
+  console.log('d')
 const pageSis=+req.query.pageSis;
 const currentPage=+req.query.Page;
-userId=req.headers.userid
-
+const userId=req.headers.userid
+// console.log(req.userData.userId)
 const postQuery=Post.find({owner:userId})
 if(pageSis && currentPage){
 postQuery.skip(pageSis*(currentPage-1)).limit(pageSis);
@@ -82,7 +83,7 @@ let fetchedpost;
 })
 
 app.get("/:id", auth,(req, res, next) => {
-  userId=req.headers.userid
+  const userId=req.headers.userid
   Post.findOne({_id:req.params.id,owner:userId}).then(post => {
     if (post) {
       res.status(200).json(post);
@@ -93,7 +94,7 @@ app.get("/:id", auth,(req, res, next) => {
 });
 
 app.put("/:id",auth, multer({storage:storage}).single("image"),(req, res, next) => {
-  userId=req.headers.userid
+ const userId=req.headers.userid
   const post = new Post({
 
     _id: req.body.id,
@@ -108,7 +109,7 @@ app.put("/:id",auth, multer({storage:storage}).single("image"),(req, res, next) 
   });
 });
 app.delete('/:id',auth,(req,res)=>{
-  userId=req.headers.userid
+  const userId=req.headers.userid
   Post.deleteOne({_id:req.params.id,owner:userId},(hey)=>{
 
     res.json({hey})

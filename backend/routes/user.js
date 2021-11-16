@@ -24,8 +24,8 @@ router.post("/signup", (req, res) => {
 });
 router.post("/login", (req, res) => {
   let fetchUser;
-  User.findOne({email:req.body.email})
-      .then((result) => {
+
+  User.findOne({email:req.body.email}).then((result) => {
         if(!result){
           return res.send("AUTH FAILED")
         }

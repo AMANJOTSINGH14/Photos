@@ -33,7 +33,7 @@ auth:boolean;
 
   console.log(form)
   this.authService.createUser(form.value.email,form.value.password)
-  // this.route.navigate(['/login'])
+  this.route.navigate(['/login'])
 }
 ngOnDestroy(){
 this.subs.unsubscribe()
